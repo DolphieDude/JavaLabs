@@ -2,9 +2,15 @@ package lab1;
 public class Task1_5 {
     public static void main(String[] args) {
         double a, b, c;
-        a = Math.abs(Double.parseDouble(args[0]));
-        b = Math.abs(Double.parseDouble(args[1]));
-        c = Math.abs(Double.parseDouble(args[2]));
+        try {
+            a = Math.abs(Double.parseDouble(args[0]));
+            b = Math.abs(Double.parseDouble(args[1]));
+            c = Math.abs(Double.parseDouble(args[2]));
+        }
+        catch (Exception e) {
+            System.out.println("Not doubles");
+            return;
+        }
 
         if (a + b <= c || a + c <= b || b + c <= a) {
             System.out.println("Triangle is not valid");

@@ -17,10 +17,10 @@ public class Task1_20 {
             return;
         }
 
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
-            if (i == str.length() - 1) result = str.charAt(i) + result;
-            else result += str.charAt(i);
+            if (i == str.length() - 1) result.insert(0, str.charAt(i));
+            else result.append(str.charAt(i));
         }
         System.out.println("Shifted number = " + result);
 

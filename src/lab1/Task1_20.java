@@ -1,5 +1,5 @@
 package lab1;
-
+//У чотиризначному числі цифри циклічно зсунути на 1 позицію вправо. Знайти його натуральний логарифм.
 public class Task1_20 {
     public static void main(String[] args) {
         String str = args[0];

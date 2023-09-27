@@ -1,5 +1,5 @@
 package lab1;
-
+//Знайти корені квадратного рівняння A · x2 + B · x + C = 0, заданого своїми коефіцієнтами A, B, C.
 public class Task1_10 {
     public static void main(String[] args) {
         double a, b, c;

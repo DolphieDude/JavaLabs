@@ -1,5 +1,5 @@
 package lab1;
-
+//Дана сторона ромба і (в градусах) кут при вершині. Знайти площу.
 public class Task1_15 {
     public static void main(String[] args) {
         double side, angle;

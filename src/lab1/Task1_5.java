@@ -1,5 +1,4 @@
 package lab1;
-//Дані довжини сторін трикутника. Знайдіть його площу і напівпериметр.
 public class Task1_5 {
     public static void main(String[] args) {
         double a, b, c;

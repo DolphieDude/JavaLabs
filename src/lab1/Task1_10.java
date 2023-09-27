@@ -1,5 +1,4 @@
 package lab1;
-//Знайти корені квадратного рівняння A · x2 + B · x + C = 0, заданого своїми коефіцієнтами A, B, C.
 public class Task1_10 {
     public static void main(String[] args) {
         double a, b, c;
@@ -12,8 +11,19 @@ public class Task1_10 {
             System.out.println("Not doubles");
             return;
         }
+        System.out.println(a + "x^2 + " + b + "x + " + c + " = 0");
 
-        double d = b * b - 4. * a * c;
+        if (a == 0) {
+            double result;
+            if (b == 0) {
+                result = c;
+            }
+            result = -c / b;
+        }
+
+
+        Double d = b * b - 4. * a * c;
+        System.out.println(d);
         if (d > 0.) {
             double r1 = (-b + Math.pow(d, 0.5)) / (2. * a);
             double r2 = (-b - Math.pow(d, 0.5)) / (2. * a);

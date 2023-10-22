@@ -3,7 +3,7 @@ package lab2;
 import java.util.HashMap;
 
 public class Task2_25 {
-    public static void main(String[] args) {
+    public static int getDayOfYearOfDate(String[] args) {
         int dayOfMonth;
         int month;
         boolean isLeapYear;
@@ -13,8 +13,7 @@ public class Task2_25 {
             if (month > 12) throw new Exception();
             isLeapYear = Boolean.parseBoolean(args[2]);
         } catch (Exception e) {
-            System.out.println("Wrong arguments.");
-            return;
+            throw new IllegalArgumentException("args must be parseable to int");
         }
 
         int additionalDay = isLeapYear ? 1 : 0;
@@ -36,11 +35,11 @@ public class Task2_25 {
         int dayOfYear;
         dayOfYear = dayOfMonth + mapOfMonths.get(month);
         if (dayOfYear > mapOfMonths.get(month + 1)) {
-            System.out.println("Day is not real for this month");
-            return;
+            throw new IllegalArgumentException("Day is not real for this month");
         }
 
 
         System.out.println("Day of the year: " + dayOfYear);
+        return dayOfYear;
     }
 }

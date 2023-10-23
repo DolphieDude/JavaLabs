@@ -10,7 +10,9 @@ public class Task2_25 {
         try {
             dayOfMonth = Integer.parseInt(args[0]);
             month = Integer.parseInt(args[1]);
-            if (month > 12) throw new Exception();
+            if (month > 12) {
+                throw new Exception();
+            }
             isLeapYear = Boolean.parseBoolean(args[2]);
         } catch (Exception e) {
             throw new IllegalArgumentException("args must be parseable to int");

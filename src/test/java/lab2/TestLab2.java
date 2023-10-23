@@ -2,6 +2,7 @@ package lab2;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestLab2 {
@@ -14,6 +15,17 @@ public class TestLab2 {
         String actual = Task2_5.getMessageAboutSigningOfNumbers(array);
 
         assertEquals(expected, actual);
+    }
+
+    //TASK 2_10
+    @Test
+    public void shouldReturnCorrectArray() {
+        int[] array = {1, 1, 1, 4, 5, 4, 6, 5};
+        int[] expected = {3, 3, 3, 2, 2, 2, 1, 2};
+
+        int[] actual = Task2_10.getArrayOfElementRepetition(array);
+
+        assertArrayEquals(expected, actual);
     }
 
     //TASK 2_25

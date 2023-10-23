@@ -2,7 +2,7 @@ package lab2;
 
 import java.util.HashMap;
 
-public class Task2_25 {
+public class Task2_24 {
     public static int getDayOfYearOfDate(String[] args) {
         int dayOfMonth;
         int month;

@@ -43,6 +43,17 @@ public class TestLab2 {
         assertEquals(expected, actual);
     }
 
+    //TASK 2_20
+    @Test
+    public void shouldReturnArrayOfPercentagesDependingOnAvg() {
+        int[] array = {2, 4, 6, 8, 10};
+        double[] expected = {40.0, 20.0, 40.0};
+
+        double[] actual = Task2_20.getPercentagesOfElementsDependingOnAverage(array);
+
+        assertArrayEquals(expected, actual, 0.001);
+    }
+
     //TASK 2_24
     @Test
     public void shouldReturnDayOfTheYear() {

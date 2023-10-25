@@ -34,11 +34,11 @@ public class TestLab2 {
     //TASK 2_15
     @Test
     public void shouldReturnArrayOfCommonElements() {
-        int[] array1 = {2, 5, 6, 3, 8, 432, 21, 64};
-        int[] array2 = {5, 7, 21, 83, 432, 1, 0, 1212};
-        List<Integer> expected = Arrays.asList(5, 21, 432);
+        String[] array1 = {"a", "b", "c"};
+        String[] array2 = {"b", "c", "d"};
+        List<String> expected = Arrays.asList("b", "c");
 
-        List<Integer> actual = Task2_15.getArrayOfCommonElements(array1, array2);
+        List<String> actual = Task2_15.getArrayOfCommonElements(array1, array2);
 
         assertEquals(expected, actual);
     }
@@ -50,6 +50,7 @@ public class TestLab2 {
         double[] expected = {40.0, 20.0, 40.0};
 
         double[] actual = Task2_20.getPercentagesOfElementsDependingOnAverage(array);
+
 
         assertArrayEquals(expected, actual, 0.001);
     }

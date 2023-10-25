@@ -13,16 +13,19 @@ public class Task1_10 {
         }
         System.out.println(a + "x^2 + " + b + "x + " + c + " = 0");
 
-        if (a == 0) {
+        if (a == 0.) {
             double result;
-            if (b == 0) {
+            if (b == 0.) {
                 result = c;
+            } else {
+                result = -c / b;
             }
-            result = -c / b;
+            System.out.println("Root is " + result);
+            return;
         }
 
 
-        Double d = b * b - 4. * a * c;
+        double d = b * b - 4. * a * c;
         System.out.println(d);
         if (d > 0.) {
             double r1 = (-b + Math.pow(d, 0.5)) / (2. * a);

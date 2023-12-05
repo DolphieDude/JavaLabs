@@ -12,7 +12,7 @@ import java.util.function.BiFunction;
 
 public class Task3_15 {
 
-    private static StringBuffer cipher(String message, String key, String choice) {
+    public static StringBuffer cipher(String message, String key, String choice) {
         StringBuffer cipherResult = new StringBuffer();
         BiFunction<Character, Character, Character> function;
 

@@ -1,9 +1,9 @@
 package lab4;
 
 public class Article {
-    private String name;
+    final private String name;
 
-    private float price;
+    final private float price;
 
     public Article(String name, float price) {
         this.name = name;

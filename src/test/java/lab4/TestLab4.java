@@ -119,4 +119,31 @@ public class TestLab4 {
         String actualOutput = outputStream.toString();
         assertEquals(expectedOutput.trim(), actualOutput.trim());
     }
+
+    //TASK 4_30
+    @Test
+    public void shouldDeleteFileFromMap() {
+        String expectedOutput =
+                """
+                        Current files:\r
+                        task4_30: C:\\Users\\Admin\\Desktop\\prsnl\\KPI STUDY\\Java\\folder\\anotherfolder\\task4_30.txt - Create an application to search in a list of files and delete a file from the list.\r
+                        testlab4: C:\\Users\\Admin\\Desktop\\prsnl\\KPI STUDY\\Java\\folder\\anotherfolder\\testlab4.txt - Tests for lab4.\r
+                        task4_4: C:\\Users\\Admin\\Desktop\\prsnl\\KPI STUDY\\Java\\folder\\task4_4.txt - Create an application for viewing a list of items and adding items to the list\r
+                        task4_15: C:\\Users\\Admin\\Desktop\\prsnl\\KPI STUDY\\Java\\folder\\task4_15.txt - Create an application for buying products in a store with delivery.\r
+                        task4_26: C:\\Users\\Admin\\Desktop\\prsnl\\KPI STUDY\\Java\\folder\\anotherfolder\\task4_26.txt - Create an application for adding products and viewing the list of electronic store products.\r
+                        Choose file by name: Open or delete?: Current files:\r
+                        task4_30: C:\\Users\\Admin\\Desktop\\prsnl\\KPI STUDY\\Java\\folder\\anotherfolder\\task4_30.txt - Create an application to search in a list of files and delete a file from the list.\r
+                        task4_4: C:\\Users\\Admin\\Desktop\\prsnl\\KPI STUDY\\Java\\folder\\task4_4.txt - Create an application for viewing a list of items and adding items to the list\r
+                        task4_15: C:\\Users\\Admin\\Desktop\\prsnl\\KPI STUDY\\Java\\folder\\task4_15.txt - Create an application for buying products in a store with delivery.\r
+                        task4_26: C:\\Users\\Admin\\Desktop\\prsnl\\KPI STUDY\\Java\\folder\\anotherfolder\\task4_26.txt - Create an application for adding products and viewing the list of electronic store products.\r
+                        Choose file by name:""";
+
+        String input = "testlab4\ndElEtE\nexIT\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        Task4_30.main(new String[]{});
+
+        String actualOutput = outputStream.toString();
+        assertEquals(expectedOutput.trim(), actualOutput.trim());
+    }
 }

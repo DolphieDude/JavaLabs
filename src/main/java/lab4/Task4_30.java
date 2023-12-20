@@ -6,6 +6,26 @@ import java.util.Scanner;
 import java.util.TreeSet;
 
 public class Task4_30 {
+
+    static class TextFile {
+        private final String path;
+
+        private final String description;
+
+        public TextFile(String path, String description) {
+            this.path = path;
+            this.description = description;
+        }
+
+        public String getPath() {
+            return path;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+    }
+
     public static void main(String[] args) {
         HashMap<String, TextFile> files = new HashMap<>();
         TreeSet<String> pathSet = new TreeSet<>();

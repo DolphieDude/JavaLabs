@@ -6,6 +6,25 @@ import java.util.TreeSet;
 
 public class Task4_4 {
 
+    class Article {
+        final private String name;
+
+        final private float price;
+
+        public Article(String name, float price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public float getPrice() {
+            return price;
+        }
+    }
+
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
         TreeSet<Integer> set = new TreeSet<>();

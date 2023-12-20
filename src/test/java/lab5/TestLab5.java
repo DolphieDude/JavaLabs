@@ -1,9 +1,5 @@
 package lab5;
 
-import lab4.Task4_30;
-import lab4.Task4_4;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -11,34 +7,23 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestLab5 {
-    final private InputStream originalIn = System.in;
-
-    final private PrintStream originalOut = System.out;
-
-    private ByteArrayOutputStream outputStream;
-
-
-    @BeforeEach
-    public void setOutUp() {
-        outputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStream));
-    }
-
-    @AfterEach
-    public void returnOriginalStreams() {
-        System.setIn(originalIn);
-        System.setOut(originalOut);
-    }
 
     //TASK 5_4
     @Test
     public void shouldAddNewWeatherInfoAndPrintExisting() {
+        final InputStream originalIn = System.in;
+
+        final PrintStream originalOut = System.out;
+
+        ByteArrayOutputStream outputStream;
+
+        outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
         String expectedOutput =
                 """
                         Adding new forecast info:\r
@@ -53,6 +38,9 @@ public class TestLab5 {
 
         String actualOutput = outputStream.toString();
         assertTrue(actualOutput.trim().contains(expectedOutput.trim()));
+
+        System.setIn(originalIn);
+        System.setOut(originalOut);
     }
 
     //TASK 5_15
@@ -72,4 +60,56 @@ public class TestLab5 {
         assertEquals(6, line.getEndX());
         assertEquals(3, line.getEndY());
     }
+
+    @Test
+    void testSolve() {
+        int[][] matrixData = {{2, 3}, {4, 5}};
+        Matrix coefficientMatrix = new Matrix(matrixData);
+        int[] freeTerms = {8, 18};
+
+        LinearEquationSystem equationSystem = new LinearEquationSystem(coefficientMatrix, freeTerms);
+
+        double[] solution = equationSystem.solve();
+
+        double[] expected = {7.0, -2.0}; // Adjust format to match double precision
+
+        assertArrayEquals(expected, solution, 1e-10);
+    }
+
+    @Test
+    void testSolveWithNoSolution() {
+        int[][] matrixData = {{2, 3}, {4, 6}};
+        Matrix coefficientMatrix = new Matrix(matrixData);
+        int[] freeTerms = {8, 18};
+        LinearEquationSystem equationSystem = new LinearEquationSystem(coefficientMatrix, freeTerms);
+        assertThrows(ArithmeticException.class, equationSystem::solve);
+    }
+
+    @Test
+    void testSolveWithInfinitelyManySolutions() {
+        int[][] matrixData = {{2, 3}, {4, 6}};
+        Matrix coefficientMatrix = new Matrix(matrixData);
+        int[] freeTerms = {4, 9};
+        LinearEquationSystem equationSystem = new LinearEquationSystem(coefficientMatrix, freeTerms);
+        assertThrows(ArithmeticException.class, equationSystem::solve);
+    }
+
+    @Test
+    void testToString() {
+        int[][] matrixData = {{2, 3}, {4, 5}};
+        Matrix coefficientMatrix = new Matrix(matrixData);
+        int[] freeTerms = {8, 18};
+
+        LinearEquationSystem equationSystem = new LinearEquationSystem(coefficientMatrix, freeTerms);
+
+        String expected = "2x + 3y = 8\n4x + 5y = 18\n";
+
+        String actual = equationSystem.toString();
+
+        System.out.println("Expected:\n" + expected);
+        System.out.println("Actual:\n" + actual);
+
+        assertEquals(expected, actual);
+    }
+
 }

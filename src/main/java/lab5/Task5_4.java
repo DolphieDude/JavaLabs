@@ -31,7 +31,6 @@ public class Task5_4 {
                     case "quit":
                         return;
                 }
-                System.out.println("Wrong input");
             }
         }
 

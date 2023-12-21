@@ -7,11 +7,29 @@ public class Task6_4 extends Frame {
     private int width = 50;
     private int height = 50;
 
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     private final Checkbox widthCheckbox;
     private final Checkbox heightCheckbox;
 
     public Task6_4() {
-        setTitle("Resize Figure App");
+        setTitle("Task6_4");
         setSize(400, 300);
         setLayout(new BorderLayout());
 
@@ -70,7 +88,7 @@ public class Task6_4 extends Frame {
         setVisible(true);
     }
 
-    private void resizeFigure(int delta) {
+    public void resizeFigure(int delta) {
         if (widthCheckbox.getState()) {
             width += delta;
         }

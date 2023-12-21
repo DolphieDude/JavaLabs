@@ -72,7 +72,7 @@ public class TestLab5 {
 
         double[] solution = equationSystem.solve();
 
-        double[] expected = {7.0, -2.0}; // Adjust format to match double precision
+        double[] expected = {7.0, -2.0};
 
         assertArrayEquals(expected, solution, 1e-10);
     }

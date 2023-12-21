@@ -6,7 +6,7 @@ package lab5;
  *
  * @author Andrii Cherevatyi
  */
-public class Animal {
+public abstract class Animal {
 
     /**
      * The species of the animal.

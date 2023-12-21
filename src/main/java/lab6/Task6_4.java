@@ -12,17 +12,9 @@ public class Task6_4 extends Frame {
         return width;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
     @Override
     public int getHeight() {
         return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     private final Checkbox widthCheckbox;

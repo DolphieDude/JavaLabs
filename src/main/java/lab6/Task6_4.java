@@ -50,20 +50,14 @@ public class Task6_4 extends Frame {
         Button increaseButton = new Button("Increase");
         Button decreaseButton = new Button("Decrease");
 
-        increaseButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                resizeFigure(10);
-                canvas.repaint();
-            }
+        increaseButton.addActionListener(e -> {
+            resizeFigure(10);
+            canvas.repaint();
         });
 
-        decreaseButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                resizeFigure(-10);
-                canvas.repaint();
-            }
+        decreaseButton.addActionListener(e -> {
+            resizeFigure(-10);
+            canvas.repaint();
         });
 
         controlPanel.add(increaseButton);

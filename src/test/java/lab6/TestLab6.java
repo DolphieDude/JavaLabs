@@ -2,11 +2,16 @@ package lab6;
 
 import org.junit.jupiter.api.Test;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -138,5 +143,37 @@ public class TestLab6 {
 
         textPaneHandler.setText("Test Text");
         assertEquals("Test Text", textPaneHandler.getText());
+    }
+
+
+    //TASK6_30
+    private ImagePanel imagePanel;
+
+    @Test
+    void testInitialImage() {
+        imagePanel = new ImagePanel();
+        assertNotNull(imagePanel.getOriginalImage());
+        assertNotNull(imagePanel.getResizedImage());
+        assertEquals(imagePanel.getOriginalImage(), imagePanel.getResizedImage());
+    }
+
+    @Test
+    void testLoadImageFromFile() {
+        imagePanel = new ImagePanel();
+        Path imagePath = Paths.get("C:\\Users\\Admin\\Desktop\\prsnl\\KPI STUDY\\k-5_mem.jpg");
+
+        try {
+            BufferedImage bufferedImage = ImageIO.read(imagePath.toFile());
+            Image expectedImage = bufferedImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+
+            ImagePanel loadedImagePanel = new ImagePanel(imagePath.toString(), 100, 100);
+
+            assertNotNull(loadedImagePanel.getOriginalImage());
+            assertNotNull(loadedImagePanel.getResizedImage());
+            assertEquals(expectedImage.getWidth(null), loadedImagePanel.getResizedImage().getWidth(null));
+            assertEquals(expectedImage.getHeight(null), loadedImagePanel.getResizedImage().getHeight(null));
+        } catch (IOException e) {
+            System.out.println("No needed file");
+        }
     }
 }

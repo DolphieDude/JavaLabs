@@ -1,17 +1,22 @@
 package lab6;
-import java.awt.*;
 
-import java.util.Hashtable;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+import java.awt.*;
+import java.util.Hashtable;
 
+/**
+ * Task6_30 class represents a graphical window for resizing an image with width and height controls.
+ */
 public class Task6_30 extends JFrame {
 
     private final ImagePanel imagePanel;
     private final JSlider widthSlider;
     private final JSlider heightSlider;
 
+    /**
+     * Creates an instance of the Task6_30 class, initializing the graphical window
+     * with sliders for controlling the width and height of an image.
+     */
     public Task6_30() {
         setTitle("Task6_30");
         setSize(1920, 1080);
@@ -30,9 +35,9 @@ public class Task6_30 extends JFrame {
 
         JPanel controlPanel = new JPanel();
         controlPanel.setLayout(new FlowLayout());
-        controlPanel.add(new JLabel("Width:"));
+        controlPanel.add(new JLabel("Width%:"));
         controlPanel.add(widthSlider);
-        controlPanel.add(new JLabel("Height:"));
+        controlPanel.add(new JLabel("Height%:"));
         controlPanel.add(heightSlider);
         controlPanel.add(resizeButton);
 
@@ -43,6 +48,14 @@ public class Task6_30 extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Creates a JSlider with specified minimum, maximum, and initial values.
+     *
+     * @param min          the minimum value of the slider
+     * @param max          the maximum value of the slider
+     * @param initialValue the initial value of the slider
+     * @return a JSlider with specified attributes
+     */
     private JSlider createSlider(int min, int max, int initialValue) {
         JSlider slider = new JSlider(min, max, initialValue);
         slider.setMajorTickSpacing(20);
@@ -64,9 +77,12 @@ public class Task6_30 extends JFrame {
         return slider;
     }
 
+    /**
+     * The main method to create and display an instance of Task6_30.
+     *
+     * @param args the command-line arguments
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Task6_30::new);
     }
 }
-
-

@@ -6,13 +6,26 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
+/**
+ * The TextPaneHandler class provides methods to handle text styling in a JTextPane.
+ */
 class TextPaneHandler {
     private final JTextPane textPane;
 
+    /**
+     * Constructs a TextPaneHandler with a JTextPane to handle.
+     *
+     * @param textPane the JTextPane to handle
+     */
     public TextPaneHandler(JTextPane textPane) {
         this.textPane = textPane;
     }
 
+    /**
+     * Sets the style of the text at the caret position in the JTextPane.
+     *
+     * @param style the style to set ("Bold" or "Italic")
+     */
     public void setPaneStyle(String style) {
         StyledDocument doc = textPane.getStyledDocument();
         int caretPosition = textPane.getCaretPosition();
@@ -44,7 +57,11 @@ class TextPaneHandler {
         }
     }
 
-
+    /**
+     * Sets the font size of the text at the caret position in the JTextPane.
+     *
+     * @param size the font size to set (e.g., "10pt", "12pt")
+     */
     public void setPaneSize(String size) {
         int fontSize = Integer.parseInt(size.replaceAll("[^\\d.]", ""));
 
@@ -76,11 +93,20 @@ class TextPaneHandler {
         }
     }
 
-
+    /**
+     * Sets the text of the JTextPane.
+     *
+     * @param text the text to set
+     */
     public void setText(String text) {
         textPane.setText(text);
     }
 
+    /**
+     * Gets the text from the JTextPane.
+     *
+     * @return the text in the JTextPane
+     */
     public String getText() {
         return textPane.getText();
     }

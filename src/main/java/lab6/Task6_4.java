@@ -1,25 +1,27 @@
 package lab6;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+/**
+ * Task6_4 class represents a graphical window with controls to resize a figure.
+ * The figure can be resized in both width and height using checkboxes and buttons.
+ */
 public class Task6_4 extends Frame {
     private int width = 50;
     private int height = 50;
 
-    @Override
-    public int getWidth() {
-        return width;
-    }
-
-    @Override
-    public int getHeight() {
-        return height;
-    }
-
+    /**
+     * Checkbox for controlling whether to resize the width of the figure.
+     */
     private final Checkbox widthCheckbox;
+
+    /**
+     * Checkbox for controlling whether to resize the height of the figure.
+     */
     private final Checkbox heightCheckbox;
 
+    /**
+     * Creates an instance of the Task6_4 class, initializing the graphical window with controls.
+     */
     public Task6_4() {
         setTitle("Task6_4");
         setSize(400, 300);
@@ -74,6 +76,11 @@ public class Task6_4 extends Frame {
         setVisible(true);
     }
 
+    /**
+     * Resizes the figure based on the specified delta values for width and height.
+     *
+     * @param delta the amount by which to resize the figure
+     */
     public void resizeFigure(int delta) {
         if (widthCheckbox.getState()) {
             width += delta;
@@ -84,9 +91,12 @@ public class Task6_4 extends Frame {
         }
     }
 
+    /**
+     * The main method to create and display an instance of Task6_4.
+     *
+     * @param args the command-line arguments
+     */
     public static void main(String[] args) {
         new Task6_4();
     }
 }
-
-

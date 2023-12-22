@@ -1,10 +1,18 @@
 package lab6;
+
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Task6_26 class represents a graphical window for text input with style and size controls.
+ */
 public class Task6_26 extends JFrame {
     private final TextPaneHandler textPaneHandler;
 
+    /**
+     * Creates an instance of the Task6_26 class, initializing the graphical window
+     * with style and size controls for text input.
+     */
     public Task6_26() {
         setTitle("Task6_26");
         setSize(1920, 1080);
@@ -44,8 +52,12 @@ public class Task6_26 extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * The main method to create and display an instance of Task6_26.
+     *
+     * @param args the command-line arguments
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Task6_26::new);
     }
 }
-

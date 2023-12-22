@@ -1,6 +1,11 @@
 package lab6;
+
 import java.awt.*;
 
+/**
+ * Task6_11 class represents a graphical window with controls to change the color
+ * and move a filled rectangle within a canvas.
+ */
 public class Task6_11 extends Frame {
     private int x = 200;
     private int y = 150;
@@ -8,26 +13,53 @@ public class Task6_11 extends Frame {
     private final int height = 50;
     private Color currentColor = Color.BLACK;
 
+    /**
+     * The canvas where the filled rectangle is displayed.
+     */
     private Canvas canvas;
 
+    /**
+     * Gets the current x-coordinate of the filled rectangle.
+     *
+     * @return the x-coordinate
+     */
     @Override
     public int getX() {
         return x;
     }
 
+    /**
+     * Gets the current y-coordinate of the filled rectangle.
+     *
+     * @return the y-coordinate
+     */
     @Override
     public int getY() {
         return y;
     }
 
+    /**
+     * Gets the current color of the filled rectangle.
+     *
+     * @return the color of the rectangle
+     */
     public Color getCurrentColor() {
         return currentColor;
     }
 
+    /**
+     * Gets the canvas where the filled rectangle is displayed.
+     *
+     * @return the canvas component
+     */
     public Canvas getCanvas() {
         return canvas;
     }
 
+    /**
+     * Creates an instance of the Task6_11 class, initializing the graphical window
+     * with controls for color selection and movement of the filled rectangle.
+     */
     public Task6_11() {
         setTitle("Task6_11");
         setSize(400, 300);
@@ -85,6 +117,11 @@ public class Task6_11 extends Frame {
         setVisible(true);
     }
 
+    /**
+     * Changes the color of the filled rectangle based on the selected color name.
+     *
+     * @param colorName the name of the selected color
+     */
     public void changeColor(String colorName) {
         switch (colorName.toLowerCase()) {
             case "red":
@@ -102,6 +139,14 @@ public class Task6_11 extends Frame {
         repaint();
     }
 
+    /**
+     * Moves the filled rectangle by the specified delta values in the x and y directions
+     * within the given canvas boundaries.
+     *
+     * @param deltaX the change in x-coordinate
+     * @param deltaY the change in y-coordinate
+     * @param canvas the canvas component
+     */
     public void moveFigure(int deltaX, int deltaY, Canvas canvas) {
         int newX = x + deltaX;
         int newY = y + deltaY;
@@ -113,11 +158,12 @@ public class Task6_11 extends Frame {
         }
     }
 
+    /**
+     * The main method to create and display an instance of Task6_11.
+     *
+     * @param args the command-line arguments
+     */
     public static void main(String[] args) {
         new Task6_11();
     }
-
-
 }
-
-
